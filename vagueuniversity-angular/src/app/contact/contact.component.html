@@ -22,25 +22,30 @@
                 <form method="get" name="email-form" data-name="Email Form"
                     data-w-id="0f306e89-5450-5a9b-e7e3-e8bf4592f58f"
                     data-wf-id="[&quot;0f306e89-5450-5a9b-e7e3-e8bf4592f58f&quot;]" id="email-form"
-                    aria-label="Email Form"><label for="name" data-w-id="cc793f1c-2ec5-31d2-8949-212e0ea7550a"
-                        data-wf-id="[&quot;cc793f1c-2ec5-31d2-8949-212e0ea7550a&quot;]">Name</label><input
+                    aria-label="Email Form">
+                    <label for="name" data-w-id="cc793f1c-2ec5-31d2-8949-212e0ea7550a"
+                        data-wf-id="[&quot;cc793f1c-2ec5-31d2-8949-212e0ea7550a&quot;]">Name</label>
+                        <input
                         class="text-field w-input" maxlength="256" name="name" data-name="Name"
                         placeholder="Enter your name" data-w-id="412d828b-5d28-fd4d-5ccf-149dba70be28"
-                        data-wf-id="[&quot;412d828b-5d28-fd4d-5ccf-149dba70be28&quot;]" type="text" id="name"><label
+                        data-wf-id="[&quot;412d828b-5d28-fd4d-5ccf-149dba70be28&quot;]" type="text" id="name" value={{this.emailForm.name}} (change)="onChange($event)">
+                        <label
                         for="email" data-w-id="f318e2ab-11d0-1b69-41a7-3c88b10a3897"
-                        data-wf-id="[&quot;f318e2ab-11d0-1b69-41a7-3c88b10a3897&quot;]">Email Address</label><input
+                        data-wf-id="[&quot;f318e2ab-11d0-1b69-41a7-3c88b10a3897&quot;]">Email Address</label>
+                        <input
                         class="text-field w-input" maxlength="256" name="email" data-name="Email"
                         placeholder="Enter your email address" data-w-id="eca2fe41-af10-7880-63b8-9e35baa4a6a4"
                         data-wf-id="[&quot;eca2fe41-af10-7880-63b8-9e35baa4a6a4&quot;]" type="email" id="email"
-                        required=""><label for="Message" data-w-id="8b8b6e3d-2a0a-7e70-c7c3-3a0d0005e24f"
+                        required="" value={{this.emailForm.email}} (change)="onChange($event)"><label for="Message" data-w-id="8b8b6e3d-2a0a-7e70-c7c3-3a0d0005e24f"
                         data-wf-id="[&quot;8b8b6e3d-2a0a-7e70-c7c3-3a0d0005e24f&quot;]">Message</label><textarea
                         class="text-field text-area w-input" maxlength="5000" name="Message" data-name="Message"
                         placeholder="Enter your message" data-w-id="90180746-58e4-d6b4-545c-64adb3c0b6c0"
-                        data-wf-id="[&quot;90180746-58e4-d6b4-545c-64adb3c0b6c0&quot;]" id="Message"
-                        required=""></textarea><input type="submit" data-wait="Please wait..."
+                        data-wf-id="[&quot;90180746-58e4-d6b4-545c-64adb3c0b6c0&quot;]" value={{this.emailForm.message}} id="Message"
+                        required=""(change)="onChange($event)"></textarea>
+                        <input type="submit" data-wait="Please wait..."
                         data-w-id="77eacdd1-8af2-565b-6448-93b4351b432c"
                         data-wf-id="[&quot;77eacdd1-8af2-565b-6448-93b4351b432c&quot;]" class="button w-button"
-                        value="Submit"></form>
+                        value="Submit" (click)="submitMessage($event)"></form>
                 <div data-w-id="7ba9e5ce-a1a1-3b0d-8af9-41c50c75f9c5"
                     data-wf-id="[&quot;7ba9e5ce-a1a1-3b0d-8af9-41c50c75f9c5&quot;]" class="success-message w-form-done"
                     tabindex="-1" role="region" aria-label="Email Form success">
