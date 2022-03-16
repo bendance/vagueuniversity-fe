@@ -12,6 +12,7 @@ export class MailbotService {
   // method to send mail
   public sendMail(name: string, email: string, message: string): Observable<Object>
   {
+    console.log("sendMail function being executed");
     const formData: FormData = new FormData();
     formData.append('name', name);
     formData.append('email', email);

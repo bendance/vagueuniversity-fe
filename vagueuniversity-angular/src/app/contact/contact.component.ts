@@ -8,6 +8,10 @@ import { MailbotService } from '../mailbot.service';
 })
 export class ContactComponent implements OnInit {
 
+  emailSent = false;
+  emailFailedSend = false;
+  sendButtonClicked = false;
+
   emailForm = 
   {
     name: "",
@@ -17,7 +21,9 @@ export class ContactComponent implements OnInit {
 
   constructor(private mailbotService: MailbotService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    
   }
 
   // when one of the values of the form is changed, update the emailForm object
@@ -40,6 +46,17 @@ export class ContactComponent implements OnInit {
   submitMessage(event: any)
   {
     event.preventDefault();
-    this.mailbotService.sendMail(this.emailForm.name, this.emailForm.email, this.emailForm.message);
+    this.sendButtonClicked = true;
+    const response = this.mailbotService.sendMail(this.emailForm.name, this.emailForm.email, this.emailForm.message);
+    response.subscribe( 
+      res => {
+        console.log('Email sent', res);
+        this.emailSent = true;
+      },
+      err => {
+        console.log('HTTP Error', err);
+        this.emailFailedSend = true;
+      },
+    )
   }
 }
